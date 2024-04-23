@@ -29,12 +29,19 @@ database.loadDatabase();
 */
 
 const express = require('express')
+require('dotenv').config();
 const app = express()
-const port = 3000;
-
+const port = process.env.PORT  || 3000 ; // 存在 dotenv，只知道可以跑，其他就不知道了
+//const portNotLocal = process.env.PORT;
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.json({limit: '1mb'}));
+
+app.listen(port, () => {
+  
+  console.log(`Server has on port: ${port}`)
+});
+
 
 
 const val = {
@@ -60,7 +67,3 @@ app.post('/', (req, res) => {
   res.status(200).send({status: 'received'});
 });
 
-app.listen(port, () => {
-  
-  console.log(`Server has on port: ${port}`)
-});
