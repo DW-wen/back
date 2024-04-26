@@ -4,7 +4,7 @@ const getBtn = document.getElementById('get');
 const postBtn = document.getElementById('post');
 const input = document.getElementById('input');
 
-const baseURL = '//192.168.8.128:3000/' 
+const baseURL = '//172.20.10.6:3000/' 
 
 getBtn.addEventListener('click', getInfo);
 postBtn.addEventListener('click', postInfo);
